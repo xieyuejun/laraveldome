@@ -20,6 +20,7 @@ Route::get('hello', function () {
 });
 
 //传递参数
+/*
 Route::get('user/{id}',function($id){
     return  'user-'.$id;
 });
@@ -30,4 +31,37 @@ Route::match(['get','post'], 'foo' ,function(){
 
 Route::any('fee',function(){
 	return 'fee goods';
+});
+
+Route::get('get/{id}/{name}',function($id,$name){
+    return 'id-'.$id.'-name-'.$name;
+})->where(['id'=>'[a-z]+','name'=>'[0-9]+']);
+
+Route::get('user/profile',function(){
+	 return 'my url---'.route('profile');
+})->name('profile');
+*/
+
+Route::get('redirect', function() {
+    // 通过路由名称进行重定向
+    return redirect()->route('profile');
+});
+
+Route::get('/user/profile','UserController@showProfile')->name('profile');
+
+/*
+Route::middleware(['first', 'second'])->group(function(){
+	  Route::get('user/info',function(){
+	  	  return 'user-info';
+	  });
+
+	  Route::get('user/center',function(){
+	  	 return 'user-center';
+	  });
+});*/
+
+Route::prefix('admin')->group(function () {
+    Route::get('users', function () {
+        return 'users';
+    });
 });
