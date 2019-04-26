@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="删除资源“laravel”" deleteContents="false" description="删除资源“laravel”" element1="/laravel" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1556086143449"/>
-</session>
