@@ -24,8 +24,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
         parent::boot();
+        Route::model('user_model', \App\User::class);
     }
 
     /**
@@ -36,9 +36,7 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
-
         //
     }
 
