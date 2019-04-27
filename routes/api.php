@@ -21,6 +21,7 @@ Route::get('users/{user}', function (App\User $user) {
     dd($user);
 });
 
+/*
 $router->get('profile/{user_model}', function(App\User $user) {
      dd($user);
-});
+});*/

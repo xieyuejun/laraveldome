@@ -42,12 +42,13 @@ Route::get('user/profile',function(){
 })->name('profile');
 */
 
+/*
 Route::get('redirect', function() {
     // 通过路由名称进行重定向
     return redirect()->route('profile');
-});
+});*/
 
-Route::get('/user/profile','UserController@showProfile')->name('profile');
+//Route::get('/user/profile','UserController@showProfile')->name('profile');
 
 /*
 Route::middleware(['first', 'second'])->group(function(){
@@ -60,8 +61,28 @@ Route::middleware(['first', 'second'])->group(function(){
 	  });
 });*/
 
+/*
 Route::prefix('admin')->group(function () {
     Route::get('users', function () {
         return 'users';
     });
 });
+
+
+Route::get('form_without_csrf_token', function (){
+    return '<form method="POST" action="/hello_from_form"><button type="submit">提交</button></form>';
+});
+
+Route::get('form_with_csrf_token', function () {
+    return '<form method="POST" action="/hello_from_form">' . csrf_field() . '<button type="submit">提交</button></form>';
+});
+
+Route::post('hello_from_form', function (){
+   return 'hello laravel!';
+});*/
+
+//Route::get('profile', 'UserController@show')->middleware('auth');
+
+Route::resource('user', 'UserController');
+Route::get('user/{id}', 'UserController@show');
+Route::resource('posts', 'PostController');
