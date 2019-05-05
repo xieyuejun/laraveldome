@@ -47,7 +47,7 @@ class PostController extends Controller
     public function show($id)
     {
         //
-        echo "string".'-'.$id;
+        echo "string".'--'.$id;
     }
 
     /**
